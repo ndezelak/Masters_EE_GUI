@@ -1,7 +1,7 @@
 # Revision History
 # 25/07: Defined a basic structure. Read the reference of tkinter to get an overview on how it works and what you can do.
 # 23/08: Restructured code into classes representing each main frame. Define structure according to design
-
+# 06/09: Defined GUI for the upper left corner
 #----------------------------------------------------------------#
 # Description:
 # This should be the main script where
@@ -14,6 +14,8 @@ from GUI.TopFrames.TopLeftFrame import *
 from GUI.BottomFrames.ChooserFrame import *
 from GUI.BottomFrames.OverviewFrame import *
 from GUI.TopFrames.TopRightFrame import *
+
+
 # Create a toplevel window
 # Each window has its own tcl interpreter
 root=Tk()
@@ -23,7 +25,7 @@ root=Tk()
 ROW_SPAN=3
 COL_SPAN=2
 
-COL_SPAN_TOP_FRAME=COL_SPAN;
+COL_SPAN_TOP_FRAME=1;
 ROW_SPAN_TOP_FRAME=1
 
 COL_SPAN_CHOOSER=1
@@ -35,21 +37,22 @@ ROW_SPAN_OVERVIEW=2
 COL_SPAN_INFO=1
 ROW_SPAN_INFO=2
 
-# Main Frame
+# --------------Main Frame------------------------ #
 frame_main = nttk.Frame(root, borderwidth=2)
 frame_main.pack(fill=BOTH, expand=TRUE)
 
 # Grid definition of the main frame
 Grid.grid_columnconfigure(frame_main, 0, weight = 20)
-Grid.grid_columnconfigure(frame_main, 1, weight=1)
-Grid.grid_columnconfigure(frame_main, 2, weight=20)
+Grid.grid_columnconfigure(frame_main, 1, weight = 1)
+Grid.grid_columnconfigure(frame_main, 2, weight = 20)
 
-Grid.grid_rowconfigure(frame_main, 0, weight=10)
+
+Grid.grid_rowconfigure(frame_main, 0, weight=3)
 Grid.grid_rowconfigure(frame_main, 1, weight=1)
 Grid.grid_rowconfigure(frame_main, 2, weight=20)
 
 
-# ------------GUI DEFINITION--------------
+# ------------GUI MAIN FRAMES DEFINITION--------------
 #1 Top Left Frame
 frame_top = TopLeftFrame(frame_main)
 frame_top.grid(column=0, row=0, rowspan=ROW_SPAN_TOP_FRAME, columnspan=COL_SPAN_TOP_FRAME , sticky=NSEW)
@@ -58,7 +61,9 @@ frame_top.populateFrame()
 #2 Top Right Frame
 frame_info = TopRightFrame(frame_main)
 frame_info.grid(column=2,row=0, rowspan=ROW_SPAN_INFO, columnspan=COL_SPAN_INFO , sticky=NSEW)
+
 frame_info.populateFrame()
+
 
 #3 Bottom Left Frame
 frame_chooser = ChooserFrame(frame_main)
@@ -77,6 +82,7 @@ button_delete=nttk.Button(frame_options, text="<<")
 button_delete.pack(side=TOP)
 # Add a column to the grid
 frame_options.grid(row=1, column=1, sticky=NSEW)
+
 
 
 #4 Overview Frame
@@ -111,5 +117,6 @@ Radio3=nttk.Radiobutton(frame_chooser, text="Option 3", value=3)
 Radio3.pack()
 '''
 # Start main loop
+root.minsize(width=1200, height=800)
 root.mainloop()
 
