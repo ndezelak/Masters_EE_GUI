@@ -1,18 +1,29 @@
 from ttk import  Frame
 import ttk as nttk
 from tkinter import *
-
+import json
 
 selected_item = []
 listbox_hauptpflicht = []
-
+resource  =  []
 
 
 
 class ChooserFrame(Frame):
 
+    # Constructor, initializes the GUI elements
+    def __init__(self, root):
+        # Here you call the Frame constructor first and then place widgets into that frame
+        super().__init__(root)
+        self.populateFrame()
 
     def populateFrame(self):
+
+        global resource
+        with open("Resources/rawfile.json", 'r') as file:
+            resource = json.load(file)
+
+
         global selected_item
         selected_item = StringVar()
 
@@ -21,9 +32,12 @@ class ChooserFrame(Frame):
         frame_hauptpflicht = nttk.Frame()
         global listbox_hauptpflicht
         listbox_hauptpflicht = Listbox(frame_hauptpflicht, activestyle = 'dotbox', listvariable = selected_item)
-        listbox_hauptpflicht.insert(0,'Item1')
-        listbox_hauptpflicht.insert(1, 'Item2')
-        listbox_hauptpflicht.insert(2, 'Item3')
+        counter=0
+        for subject in resource:
+            listbox_hauptpflicht.insert(counter, subject['Name'])
+            counter = counter + 1
+
+
         listbox_hauptpflicht.pack(expand=TRUE, fill=BOTH)
 
         # Subframe for "Hauptwahl"

@@ -3,7 +3,7 @@
 # 23/08: Restructured code into classes representing each main frame. Define structure according to design
 # 06/09: Defined GUI for the upper left corner
 # 13/09, 14/09 and 17/08: Working on parsing .json file from source pdf
-# 17/09: Implemented complete interface of the TopLeftFrame
+# 17/09: Implemented complete interface of the TopLeftFrame + tested json parsing of the resource file
 #----------------------------------------------------------------#
 # Description:
 # Main script initializing all main windows
@@ -69,7 +69,7 @@ def callbackButton(action):
 #1 Top Left Frame
 frame_top = TopLeftFrame(frame_main)
 frame_top.grid(column=0, row=0, rowspan=ROW_SPAN_TOP_FRAME, columnspan=COL_SPAN_TOP_FRAME , sticky=NSEW)
-#frame_top.populateFrame()
+
 
 #2 Top Right Frame
 frame_info = TopRightFrame(frame_main)
@@ -81,7 +81,6 @@ frame_info.populateFrame()
 #3 Bottom Left Frame
 frame_chooser = ChooserFrame(frame_main)
 frame_chooser.grid(column=0, row=1, rowspan=ROW_SPAN_CHOOSER, sticky=N+S+E+W)
-frame_chooser.populateFrame()
 
 
 

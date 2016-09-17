@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0b478e67-803f-45a9-9b62-5fc7d22b7bb0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/BottomFrames/ChooserFrame.py" afterPath="$PROJECT_DIR$/GUI/BottomFrames/ChooserFrame.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/TopFrames/TopLeftFrame.py" afterPath="$PROJECT_DIR$/GUI/TopFrames/TopLeftFrame.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_GUI.py" afterPath="$PROJECT_DIR$/main_GUI.py" />
     </list>
     <ignored path="GUI_TU_BS.iws" />
@@ -27,10 +26,10 @@
       <file leaf-file-name="main_GUI.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main_GUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+            <state relative-caret-position="306">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
-                <element signature="e#570#591#0" expanded="true" />
+                <element signature="e#613#634#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -39,34 +38,10 @@
       <file leaf-file-name="ChooserFrame.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI/BottomFrames/ChooserFrame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="769">
-              <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
+            <state relative-caret-position="476">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OverviewFrame.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GUI/BottomFrames/OverviewFrame.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TopRightFrame.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GUI/TopFrames/TopRightFrame.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -75,8 +50,8 @@
       <file leaf-file-name="TopLeftFrame.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI/TopFrames/TopLeftFrame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="306">
+              <caret line="30" column="3" selection-start-line="30" selection-start-column="3" selection-end-line="34" selection-end-column="28" />
               <folding>
                 <element signature="e#310#331#0" expanded="true" />
               </folding>
@@ -111,8 +86,8 @@
         <option value="$PROJECT_DIR$/GUI Frames/BottomFrames/ChooserFrame.py" />
         <option value="$PROJECT_DIR$/GUI/BottomFrames/OverviewFrame.py" />
         <option value="$PROJECT_DIR$/GUI/TopFrames/TopRightFrame.py" />
-        <option value="$PROJECT_DIR$/GUI/BottomFrames/ChooserFrame.py" />
         <option value="$PROJECT_DIR$/GUI/TopFrames/TopLeftFrame.py" />
+        <option value="$PROJECT_DIR$/GUI/BottomFrames/ChooserFrame.py" />
         <option value="$PROJECT_DIR$/main_GUI.py" />
       </list>
     </option>
@@ -164,6 +139,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="GUI_TU_BS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GUI_TU_BS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GUI_TU_BS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -476,7 +465,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#570#591#0" expanded="true" />
+            <element signature="e#613#634#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -526,7 +515,7 @@
         <state relative-caret-position="833">
           <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
           <folding>
-            <element signature="e#570#591#0" expanded="true" />
+            <element signature="e#613#634#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -576,7 +565,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#570#591#0" expanded="true" />
+            <element signature="e#613#634#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -626,7 +615,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#570#591#0" expanded="true" />
+            <element signature="e#613#634#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -676,7 +665,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#570#591#0" expanded="true" />
+            <element signature="e#613#634#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -726,7 +715,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#570#591#0" expanded="true" />
+            <element signature="e#613#634#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -737,7 +726,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#570#591#0" expanded="true" />
+            <element signature="e#613#634#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -748,7 +737,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#570#591#0" expanded="true" />
+            <element signature="e#613#634#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -792,32 +781,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/BottomFrames/ChooserFrame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="769">
-          <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GUI/TopFrames/TopLeftFrame.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="306">
+          <caret line="30" column="3" selection-start-line="30" selection-start-column="3" selection-end-line="34" selection-end-column="28" />
           <folding>
             <element signature="e#310#331#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/BottomFrames/ChooserFrame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main_GUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        <state relative-caret-position="306">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <element signature="e#570#591#0" expanded="true" />
+            <element signature="e#613#634#0" expanded="true" />
           </folding>
         </state>
       </provider>
