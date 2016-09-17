@@ -1,0 +1,27 @@
+MASTER SUBJECT JSON STRUCTURE
+
+{
+"Name" : SubjectName (string),
+"Categories" : List of categories. If the subject is "pflicht" of this category then a ! is at the end (list)
+"Credits" : x (number),
+"Type" : "Wahl/Wahlpflicht" (string),
+"Semester" : "WS/SS" (string) ,
+"Description" : "Text describing the subject"(string),
+"Content": "Description of themes in the subject"(string)
+}
+
+// Tags in the source text
+
+#NAME#  (Skip one line after)
+#CREDITS# (Skip one line after)
+#TYPE# (Skip one line after)
+#DESCRIPTION# (Skip one line and until #CONTENT)
+#CONTENT (Skip one line and until #END_CONTENT)
+#SEMESTER# (Skip one line)
+
+Until next #NAME# search for #CATEGORY_NANO#
+							 #CATEGORY_MECHATRONIK#
+							 #CATEGORY_ELECTRONICS#
+							 #CATEGORY_COMMUNICATION#
+							 #CATEGORY_ENERGY# 
+							 

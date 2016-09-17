@@ -2,10 +2,10 @@
 # 25/07: Defined a basic structure. Read the reference of tkinter to get an overview on how it works and what you can do.
 # 23/08: Restructured code into classes representing each main frame. Define structure according to design
 # 06/09: Defined GUI for the upper left corner
+# 13/09, 14/09 and 17/08: Working on parsing .json file from source pdf
 #----------------------------------------------------------------#
 # Description:
-# This should be the main script where
-# all the GUI elements are intialized and callback methods are set.
+# Main script initializing all main windows
 
 from tkinter import *
 
@@ -51,8 +51,20 @@ Grid.grid_rowconfigure(frame_main, 0, weight=3)
 Grid.grid_rowconfigure(frame_main, 1, weight=1)
 Grid.grid_rowconfigure(frame_main, 2, weight=20)
 
+# ------------- Button callbacks ----------------------#
+def callbackButton(action):
+    if action == 1:
+        print('select button clicked')
+        selItem=frame_chooser.getSelectedItem();
+        if selItem !=0:
+            print('Selected item is:' + selItem )
+    elif action == 2:
+        print('delete button clicked')
+    else:
+        pass
 
-# ------------GUI MAIN FRAMES DEFINITION--------------
+
+# ------------GUI MAIN FRAMES DEFINITION-------------- #
 #1 Top Left Frame
 frame_top = TopLeftFrame(frame_main)
 frame_top.grid(column=0, row=0, rowspan=ROW_SPAN_TOP_FRAME, columnspan=COL_SPAN_TOP_FRAME , sticky=NSEW)
@@ -75,12 +87,13 @@ frame_chooser.populateFrame()
 #3 Middle Frame containing two buttons
 frame_options=nttk.Frame(frame_main)
 # Adding buttons to option frame
-button_add=nttk.Button(frame_options, text=">>")
+                                                # Lambda makes command associated with a function that then calls the callbackButton function
+                                                # whenever executed
+button_add=nttk.Button(frame_options, text=">>", command = lambda : callbackButton(1) )
 button_add.pack(side=TOP)
-
-button_delete=nttk.Button(frame_options, text="<<")
+button_delete=nttk.Button(frame_options, text="<<", command = lambda : callbackButton(2) )
 button_delete.pack(side=TOP)
-# Add a column to the grid
+
 frame_options.grid(row=1, column=1, sticky=NSEW)
 
 
@@ -90,32 +103,7 @@ frame_overview = OverviewFrame(frame_main)
 frame_overview.grid(column=2, row=1, rowspan=ROW_SPAN, sticky=N+S+E+W)
 frame_overview.populateFrame()
 
-'''
-button_toggle = nttk.Button(frame_overview, text="Toggle the left button")#, command=dummy_callback)
-button_toggle.pack(side=LEFT, expand=TRUE, fill=BOTH)
-button_toggle.bind("<Button-1>", dummy_callback)
 
-button_2 = nttk.Button(frame_chooser, text="Toggle the left button")#, command=dummy_callback)
-button_2.pack(side=LEFT, expand=TRUE, fill=BOTH)
-#button_2.grid(column=1, row=1, sticky=N+S+E+W)
-button_2.bind("<Button-1>", dummy_callback)
-
-
-
-# Text
-Txt1=nttk.Label(frame_chooser, text="Subjects")
-Txt1.pack(side=BOTTOM)
-
-
-Radio1=nttk.Radiobutton(frame_chooser, text="Option 1", value=1)
-Radio1.pack()
-
-Radio2=nttk.Radiobutton(frame_chooser, text="Option 2", value=2)
-Radio2.pack()
-
-Radio3=nttk.Radiobutton(frame_chooser, text="Option 3", value=3)
-Radio3.pack()
-'''
 # Start main loop
 root.minsize(width=1200, height=800)
 root.mainloop()
