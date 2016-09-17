@@ -1,8 +1,9 @@
-# Revision History
+# Revision History (whole project)
 # 25/07: Defined a basic structure. Read the reference of tkinter to get an overview on how it works and what you can do.
 # 23/08: Restructured code into classes representing each main frame. Define structure according to design
 # 06/09: Defined GUI for the upper left corner
 # 13/09, 14/09 and 17/08: Working on parsing .json file from source pdf
+# 17/09: Implemented complete interface of the TopLeftFrame
 #----------------------------------------------------------------#
 # Description:
 # Main script initializing all main windows
@@ -41,12 +42,12 @@ ROW_SPAN_INFO=2
 frame_main = nttk.Frame(root, borderwidth=2)
 frame_main.pack(fill=BOTH, expand=TRUE)
 
-# Grid definition of the main frame
+# Column definition of the main frame
 Grid.grid_columnconfigure(frame_main, 0, weight = 20)
 Grid.grid_columnconfigure(frame_main, 1, weight = 1)
 Grid.grid_columnconfigure(frame_main, 2, weight = 20)
 
-
+# Row definiton of the main frame
 Grid.grid_rowconfigure(frame_main, 0, weight=3)
 Grid.grid_rowconfigure(frame_main, 1, weight=1)
 Grid.grid_rowconfigure(frame_main, 2, weight=20)
@@ -68,7 +69,7 @@ def callbackButton(action):
 #1 Top Left Frame
 frame_top = TopLeftFrame(frame_main)
 frame_top.grid(column=0, row=0, rowspan=ROW_SPAN_TOP_FRAME, columnspan=COL_SPAN_TOP_FRAME , sticky=NSEW)
-frame_top.populateFrame()
+#frame_top.populateFrame()
 
 #2 Top Right Frame
 frame_info = TopRightFrame(frame_main)

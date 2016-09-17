@@ -2,6 +2,7 @@ from ttk import  Frame
 import ttk as nttk
 from tkinter import *
 
+
 selected_item = []
 listbox_hauptpflicht = []
 
@@ -48,3 +49,8 @@ class ChooserFrame(Frame):
 
         else:
             return 0
+    @staticmethod
+    def on_subject_changed(id_1, id_2):
+        print("On subject changed was called!")
+        print("Id1: " + str(id_1))
+        print("Id2: " + str(id_2))
