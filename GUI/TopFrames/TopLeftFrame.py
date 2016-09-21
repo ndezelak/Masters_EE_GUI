@@ -13,13 +13,14 @@ Callbacks:
 from tkinter import *
 from ttk import *
 from GUI.BottomFrames.ChooserFrame import ChooserFrame
+
 # Has to be here in order to be global
 # No call of IntVar() on this stage is allowed!
-haupt_option = ()
-neben_option = ()
-option_buffer = [1, 1]
-rbuttons_left = []
-rbuttons_right = []
+haupt_option = () # Variable used for the main subject radiobutton group
+neben_option = () # Variable used for the other subject radiobutton group
+option_buffer = [1, 1]  # Used for storing the last valid radibutton group value
+rbuttons_left = [] # Radiobuttons lying in the left column
+rbuttons_right = [] # Radiobuttons lying in the right column
 
 
 class TopLeftFrame(Frame):
@@ -54,20 +55,21 @@ class TopLeftFrame(Frame):
 
         # Radiobutton initialization
         global haupt_option
-        haupt_option = IntVar()
-
         global neben_option
-        neben_option = IntVar()
-
         global rbuttons_left
         global rbuttons_right
 
+        neben_option = IntVar()
+        haupt_option = IntVar()
+
+        # Create a list of RadioButton objects
         for i in range(0, 5):
 
             rbuttons_left.append(
                 Radiobutton(self, variable=haupt_option, value=i + 1, command=lambda :self.radiobutton_clicked(0))   )
             rbuttons_right.append(
                 Radiobutton(self, variable=neben_option, value=i + 1, command=lambda: self.radiobutton_clicked(1))   )
+            # Set default radio button position
             if i == 2:
                 rbuttons_left[i].invoke()
                 global option_buffer
@@ -86,25 +88,30 @@ class TopLeftFrame(Frame):
         self.columnconfigure(1, weight=2)
         self.columnconfigure(2, weight=6)
 
-    # Callback for radiobuttons
+
+    # -------- RADIOBUTTON CALLBACK FUNCTION ---------#
     def radiobutton_clicked(self,rbutton_id):
         # global haupt_option
         global haupt_option
         global neben_option
 
         print("---------------------------------")
+        # Radiobutton from group "main subject"
         if rbutton_id == 0:
             print("position value radiobutton 1 changed to " + str(haupt_option.get()))
+            # Check if the user wants to make a mistake
             if haupt_option.get() == neben_option.get():
                 global rbuttons_left
                 global option_buffer
                 index = option_buffer[0]-1
-                print("Values are the same! Calculated radi button index is:" + str(index))
+                print("Values are the same! Calculated radio button index is:" + str(index))
                 rbuttons_left[index].invoke()
                 return
+            # Update the ChooserFrame about a setting change
             if option_buffer[0] != haupt_option.get():
+                print("Calling ob_subject_changed")
                 ChooserFrame.on_subject_changed(haupt_option.get(), neben_option.get())
-            option_buffer[0] = haupt_option.get()
+                option_buffer[0] = haupt_option.get()
         else:
             print("position value radiobutton 2 changed  to " + str(neben_option.get()))
             if haupt_option.get() == neben_option.get():
@@ -114,9 +121,14 @@ class TopLeftFrame(Frame):
                 print("Values are the same! Calculated radi button index is:" + str(index))
                 rbuttons_right[index].invoke()
                 return
-        if option_buffer[0] != haupt_option.get():
-            ChooserFrame.on_subject_changed(haupt_option.get(), neben_option.get())
-        option_buffer[1] = neben_option.get()
+            # Update the ChooserFrame about a setting change
+            if option_buffer[1] != neben_option.get():
+                print("Calling ob_subject_changed")
+                ChooserFrame.on_subject_changed(haupt_option.get(), neben_option.get())
+                option_buffer[1] = neben_option.get()
+
+
+    # ------------INTERFACES-------------#
     # Interface to other modules so that they can read the current radiobutton state
     @staticmethod
     def get_selected_subjects():

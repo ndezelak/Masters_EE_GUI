@@ -4,6 +4,8 @@
 # 06/09: Defined GUI for the upper left corner
 # 13/09, 14/09 and 17/08: Working on parsing .json file from source pdf
 # 17/09: Implemented complete interface of the TopLeftFrame + tested json parsing of the resource file
+# 20/09: Worked on the ChooserFrame GUI structure. Decided for a Treeview structure. Interface to other modules still missing
+# 21/09: Worked on TopRightFrame GUI. First implementation of the interface to display current subject description and content
 #----------------------------------------------------------------#
 # Description:
 # Main script initializing all main windows
@@ -17,17 +19,15 @@ from GUI.BottomFrames.OverviewFrame import *
 from GUI.TopFrames.TopRightFrame import *
 
 
-# Create a toplevel window
-# Each window has its own tcl interpreter
-root=Tk()
 
 
-# Some constants for your layout
-ROW_SPAN=3
+
+# ---------------------------- Layout constants -------------------------------------------#
+ROW_SPAN=4
 COL_SPAN=2
 
 COL_SPAN_TOP_FRAME=1;
-ROW_SPAN_TOP_FRAME=1
+ROW_SPAN_TOP_FRAME=2
 
 COL_SPAN_CHOOSER=1
 ROW_SPAN_CHOOSER=ROW_SPAN -1
@@ -38,19 +38,6 @@ ROW_SPAN_OVERVIEW=2
 COL_SPAN_INFO=1
 ROW_SPAN_INFO=2
 
-# --------------Main Frame------------------------ #
-frame_main = nttk.Frame(root, borderwidth=2)
-frame_main.pack(fill=BOTH, expand=TRUE)
-
-# Column definition of the main frame
-Grid.grid_columnconfigure(frame_main, 0, weight = 20)
-Grid.grid_columnconfigure(frame_main, 1, weight = 1)
-Grid.grid_columnconfigure(frame_main, 2, weight = 20)
-
-# Row definiton of the main frame
-Grid.grid_rowconfigure(frame_main, 0, weight=3)
-Grid.grid_rowconfigure(frame_main, 1, weight=1)
-Grid.grid_rowconfigure(frame_main, 2, weight=20)
 
 # ------------- Button callbacks ----------------------#
 def callbackButton(action):
@@ -65,23 +52,41 @@ def callbackButton(action):
         pass
 
 
+
+
+#-------------------------------------------- GUI INITIALIZATION -------------------------------------------------------#
+
+# Main "windows" window
+root=Tk()
+
+# --------------MAIN WINDOW DEFINITION------------------------ #
+frame_main = nttk.Frame(root, borderwidth=2)
+frame_main.pack(fill=BOTH, expand=TRUE)
+
+# Column definition of the main frame
+Grid.grid_columnconfigure(frame_main, 0, weight = 20)
+Grid.grid_columnconfigure(frame_main, 1, weight = 1)
+Grid.grid_columnconfigure(frame_main, 2, weight = 20)
+
+# Row definiton of the main frame
+Grid.grid_rowconfigure(frame_main, 0, weight=10)
+Grid.grid_rowconfigure(frame_main, 1, weight=10)
+Grid.grid_rowconfigure(frame_main, 2, weight=1)
+Grid.grid_rowconfigure(frame_main, 3, weight=20)
 # ------------GUI MAIN FRAMES DEFINITION-------------- #
-#1 Top Left Frame
+#1 Top Left Frame initialization and placement into the main window
 frame_top = TopLeftFrame(frame_main)
-frame_top.grid(column=0, row=0, rowspan=ROW_SPAN_TOP_FRAME, columnspan=COL_SPAN_TOP_FRAME , sticky=NSEW)
+frame_top.grid(column=0, row=0, rowspan=ROW_SPAN_TOP_FRAME, columnspan=COL_SPAN_TOP_FRAME , sticky=N)
 
 
-#2 Top Right Frame
+#2 Top Right Frame initialization and placement into the main window
 frame_info = TopRightFrame(frame_main)
 frame_info.grid(column=2,row=0, rowspan=ROW_SPAN_INFO, columnspan=COL_SPAN_INFO , sticky=NSEW)
-
-frame_info.populateFrame()
 
 
 #3 Bottom Left Frame
 frame_chooser = ChooserFrame(frame_main)
 frame_chooser.grid(column=0, row=1, rowspan=ROW_SPAN_CHOOSER, sticky=N+S+E+W)
-
 
 
 #3 Middle Frame containing two buttons
@@ -94,17 +99,21 @@ button_add.pack(side=TOP)
 button_delete=nttk.Button(frame_options, text="<<", command = lambda : callbackButton(2) )
 button_delete.pack(side=TOP)
 
-frame_options.grid(row=1, column=1, sticky=NSEW)
+frame_options.grid(row=2, column=1, sticky=NSEW)
 
 
 
 #4 Overview Frame
 frame_overview = OverviewFrame(frame_main)
-frame_overview.grid(column=2, row=1, rowspan=ROW_SPAN, sticky=N+S+E+W)
+frame_overview.grid(column=2, row=2, rowspan=ROW_SPAN, sticky=N+S+E+W)
 frame_overview.populateFrame()
 
 
+
+#----------------------------- MAIN LOOP --------------------------------------------------------------------------#
 # Start main loop
 root.minsize(width=1200, height=800)
 root.mainloop()
+
+
 
