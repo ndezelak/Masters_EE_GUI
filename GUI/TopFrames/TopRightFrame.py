@@ -29,7 +29,7 @@ class TopRightFrame(Frame):
         label_frame_description = LabelFrame(self, labelanchor=NW, text="Content")
         text_widget_2 = Message(label_frame_description, aspect=300, textvariable=content_to_display,
                               justify=LEFT, width=500)
-        text_widget_2.pack(anchor=N, fill=BOTH, expand=TRUE)
+        text_widget_2.pack(anchor=W, fill=BOTH, expand=TRUE)
         label_frame_description.pack(anchor=N, fill=BOTH, expand=TRUE)
 
 

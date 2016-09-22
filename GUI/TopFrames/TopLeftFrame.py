@@ -70,7 +70,8 @@ class TopLeftFrame(Frame):
             rbuttons_right.append(
                 Radiobutton(self, variable=neben_option, value=i + 1, command=lambda: self.radiobutton_clicked(1))   )
             # Set default radio button position
-            if i == 2:
+            '''
+                        if i == 2:
                 rbuttons_left[i].invoke()
                 global option_buffer
                 option_buffer[0] = 2
@@ -78,6 +79,8 @@ class TopLeftFrame(Frame):
                 rbuttons_right[i].invoke()
                 global option_buffer
                 option_buffer[1] = 1
+            '''
+
 
             # Place buttons into the right grid row and column
             rbuttons_left[i].grid(column=0, row=2 + i)

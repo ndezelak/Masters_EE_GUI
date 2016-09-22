@@ -6,6 +6,8 @@
 # 17/09: Implemented complete interface of the TopLeftFrame + tested json parsing of the resource file
 # 20/09: Worked on the ChooserFrame GUI structure. Decided for a Treeview structure. Interface to other modules still missing
 # 21/09: Worked on TopRightFrame GUI. First implementation of the interface to display current subject description and content
+# 22/09: Worked on ChooserFrame dynamic filling up. Found that .json file has duplicated subjects. Came to the point that a filtered selection
+#        is displayed for a given subject. Further filters and sorting TBD
 #----------------------------------------------------------------#
 # Description:
 # Main script initializing all main windows
