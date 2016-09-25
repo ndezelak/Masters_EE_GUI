@@ -21,16 +21,20 @@ class TopRightFrame(Frame):
         text_to_display.set("Some text")
 
         label_frame_description=LabelFrame(self,labelanchor=NW, text="Description")
+        #label_frame_description.pack_propagate(0)
+
         text_widget = Message(label_frame_description, aspect=300, textvariable=text_to_display,
                               justify=LEFT, width=500)
         text_widget.pack(anchor=N, fill=BOTH, expand=TRUE)
         label_frame_description.pack(anchor=N, fill=BOTH, expand=TRUE)
 
-        label_frame_description = LabelFrame(self, labelanchor=NW, text="Content")
-        text_widget_2 = Message(label_frame_description, aspect=300, textvariable=content_to_display,
+        label_frame_content = LabelFrame(self, labelanchor=NW, text="Content")
+        #label_frame_content.pack_propagate(0)
+        text_widget_2 = Message(label_frame_content, aspect=300, textvariable=content_to_display,
                               justify=LEFT, width=500)
-        text_widget_2.pack(anchor=W, fill=BOTH, expand=TRUE)
-        label_frame_description.pack(anchor=N, fill=BOTH, expand=TRUE)
+        text_widget_2.pack(anchor=N, fill=BOTH, expand=TRUE)
+        label_frame_content.pack(anchor=N, fill=BOTH, expand=TRUE)
+
 
 
     @staticmethod

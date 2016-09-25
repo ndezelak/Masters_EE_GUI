@@ -38,6 +38,19 @@ class TopLeftFrame(Frame):
     def populateFrame(self):
         # Defines teo labels representing your main and your second choice for study
         # Defines radio buttons representing different options
+        # Configure the main frame
+        self.columnconfigure(0, weight=2, minsize=40)
+        self.columnconfigure(1, weight=2, minsize=40)
+        self.columnconfigure(2, weight=6, minsize=80)
+        self.rowconfigure(0, weight=3, minsize=25)
+        self.rowconfigure(1, weight=2, minsize=5)
+        self.rowconfigure(2, weight=2, minsize=20)
+        self.rowconfigure(3, weight=2, minsize=20)
+        self.rowconfigure(4, weight=2, minsize=20)
+        self.rowconfigure(5, weight=2, minsize=20)
+        self.rowconfigure(6, weight=2, minsize=20)
+        #self.grid_propagate(0)
+
 
         label_hauptwahl = Label(self, text="Hauptwahl")
         label_hauptwahl.grid(column=0, row=0)
@@ -69,28 +82,10 @@ class TopLeftFrame(Frame):
                 Radiobutton(self, variable=haupt_option, value=i + 1, command=lambda :self.radiobutton_clicked(0))   )
             rbuttons_right.append(
                 Radiobutton(self, variable=neben_option, value=i + 1, command=lambda: self.radiobutton_clicked(1))   )
-            # Set default radio button position
-            '''
-                        if i == 2:
-                rbuttons_left[i].invoke()
-                global option_buffer
-                option_buffer[0] = 2
-            if i == 1:
-                rbuttons_right[i].invoke()
-                global option_buffer
-                option_buffer[1] = 1
-            '''
-
 
             # Place buttons into the right grid row and column
             rbuttons_left[i].grid(column=0, row=2 + i)
             rbuttons_right[i].grid(column=1, row=2 + i)
-
-        # Configure the main frame
-        self.columnconfigure(0, weight=2)
-        self.columnconfigure(1, weight=2)
-        self.columnconfigure(2, weight=6)
-
 
     # -------- RADIOBUTTON CALLBACK FUNCTION ---------#
     def radiobutton_clicked(self,rbutton_id):

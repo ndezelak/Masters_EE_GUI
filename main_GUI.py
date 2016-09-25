@@ -8,6 +8,9 @@
 # 21/09: Worked on TopRightFrame GUI. First implementation of the interface to display current subject description and content
 # 22/09: Worked on ChooserFrame dynamic filling up. Found that .json file has duplicated subjects. Came to the point that a filtered selection
 #        is displayed for a given subject. Further filters and sorting TBD
+# 24/09: Implemented filters for subject categories. Needed to correct some data in .json for consistency.
+# 25/09: Finished subject category filters + implemented dynamic filling up of the treeviews via a helper function + small fix for filling up categories after first category has been chosen
+# Changed the whole geometry management - now pack manager is used for the main GUI frames. Overview Frame will be displayed in a new window!
 #----------------------------------------------------------------#
 # Description:
 # Main script initializing all main windows
@@ -60,36 +63,30 @@ def callbackButton(action):
 
 # Main "windows" window
 root=Tk()
-
+root.grid_propagate(0)
 # --------------MAIN WINDOW DEFINITION------------------------ #
 frame_main = nttk.Frame(root, borderwidth=2)
 frame_main.pack(fill=BOTH, expand=TRUE)
 
 # Column definition of the main frame
-Grid.grid_columnconfigure(frame_main, 0, weight = 20)
-Grid.grid_columnconfigure(frame_main, 1, weight = 1)
-Grid.grid_columnconfigure(frame_main, 2, weight = 20)
+'''
+Grid.grid_columnconfigure(frame_main, 0, minsize=500)#, weight = 20)
+Grid.grid_columnconfigure(frame_main, 1, minsize=30)#, weight = 1)
+Grid.grid_columnconfigure(frame_main, 2, minsize=300)#, weight = 20)
+'''
+
 
 # Row definiton of the main frame
-Grid.grid_rowconfigure(frame_main, 0, weight=10)
-Grid.grid_rowconfigure(frame_main, 1, weight=10)
-Grid.grid_rowconfigure(frame_main, 2, weight=1)
-Grid.grid_rowconfigure(frame_main, 3, weight=20)
+'''
+Grid.grid_rowconfigure(frame_main, 0, minsize=200)#, weight=10)
+Grid.grid_rowconfigure(frame_main, 1, minsize=200)#, weight=10)
+Grid.grid_rowconfigure(frame_main, 2, minsize=25)#, weight=1)
+Grid.grid_rowconfigure(frame_main, 3, minsize=400)#, weight=20)
+'''
 # ------------GUI MAIN FRAMES DEFINITION-------------- #
 #1 Top Left Frame initialization and placement into the main window
-frame_top = TopLeftFrame(frame_main)
-frame_top.grid(column=0, row=0, rowspan=ROW_SPAN_TOP_FRAME, columnspan=COL_SPAN_TOP_FRAME , sticky=N)
-
-
-#2 Top Right Frame initialization and placement into the main window
-frame_info = TopRightFrame(frame_main)
-frame_info.grid(column=2,row=0, rowspan=ROW_SPAN_INFO, columnspan=COL_SPAN_INFO , sticky=NSEW)
-
-
-#3 Bottom Left Frame
-frame_chooser = ChooserFrame(frame_main)
-frame_chooser.grid(column=0, row=1, rowspan=ROW_SPAN_CHOOSER, sticky=N+S+E+W)
-
+frame_left=nttk.Frame(frame_main)
+frame_left.pack(side=LEFT, fill=BOTH)
 
 #3 Middle Frame containing two buttons
 frame_options=nttk.Frame(frame_main)
@@ -101,13 +98,33 @@ button_add.pack(side=TOP)
 button_delete=nttk.Button(frame_options, text="<<", command = lambda : callbackButton(2) )
 button_delete.pack(side=TOP)
 
-frame_options.grid(row=2, column=1, sticky=NSEW)
+frame_options.pack(side=LEFT)
+
+
+frame_right=nttk.Frame(frame_main)
+frame_right.pack(side=LEFT, fill=BOTH)
+
+frame_top = TopLeftFrame(frame_left)
+frame_top.pack(side=TOP, fill=Y)
+
+
+#2 Top Right Frame initialization and placement into the main window
+frame_info = TopRightFrame(frame_right)
+frame_info.grid(column=0,row=0, sticky=NSEW)
+
+
+#3 Bottom Left Frame
+frame_chooser = ChooserFrame(frame_left)
+frame_chooser.pack(side=TOP, fill=BOTH, expand=TRUE)
+
+
+
 
 
 
 #4 Overview Frame
-frame_overview = OverviewFrame(frame_main)
-frame_overview.grid(column=2, row=2, rowspan=ROW_SPAN, sticky=N+S+E+W)
+frame_overview = OverviewFrame(frame_right)
+frame_overview.grid(column=0, row=1, sticky=N+S+E+W)
 frame_overview.populateFrame()
 
 
@@ -115,6 +132,11 @@ frame_overview.populateFrame()
 #----------------------------- MAIN LOOP --------------------------------------------------------------------------#
 # Start main loop
 root.minsize(width=1200, height=800)
+topWindow=Toplevel()
+topWindow.title("Overview Window")
+topWindow.minsize(width=1000, height=600)
+label=nttk.Label(topWindow, text="This is the overview window")
+label.pack(side=TOP, expand=TRUE)
 root.mainloop()
 
 
