@@ -10,12 +10,12 @@ Callbacks:
     TBD
 """
 
-from ttk import Frame
-import ttk as nttk
-from tkinter import *
+
+import Helpers.DndItem as DI
+from Helpers.DnD_Tkinter_Support import *
 import json
+import ttk as nttk
 from GUI.TopFrames.TopRightFrame import *
-from GUI.TopFrames.TopLeftFrame import *
 
 selected_item = [-1,-1]
 listbox_hauptpflicht = []
@@ -25,14 +25,19 @@ treeview_haupt=()
 treeview_neben=()
 categories=("ENERGY","MECHATRONIK", "NANO", "COMMUNICATION", "ELECTRONICS")
 class_reference = []
+chosen_tree=[]
 
+
+# Main class
 class ChooserFrame(Frame):
     # Constructor, initializes the GUI elements
     def __init__(self, root):
         # Here you call the Frame constructor first and then place widgets into that frame
         super().__init__(root)
         self.populateFrame()
+        self.root=root
         class_reference=self
+        DI.initialize_dnd_helpers(self.root)
     #---------------- CLASS INNER METHODS --------------------------------------#
     def populateFrame(self):
         # Initial parsing of the .json file
@@ -40,8 +45,10 @@ class ChooserFrame(Frame):
         if not resource:
             with open("Resources/rawfile.json", 'r') as file:
                 resource = json.load(file)
+            # Here you should pass each item data to a custom class (not static!) that implements the drag'n'drop callback functions
             for item in resource:
                 print(item['Name'])
+
 
         # ----------------------------------------------------------------------------------#
         # Subframe for "Haupt"
@@ -61,6 +68,10 @@ class ChooserFrame(Frame):
 
         treeview_haupt.pack(fill=BOTH,expand=TRUE)
         treeview_haupt.bind('<ButtonRelease-1>', lambda event,arg=1:  self.item_clicked(event, arg))
+        treeview_haupt.bind('<ButtonPress-1>', lambda event, arg=1: self.drag_drop_start(event, arg))
+        treeview_haupt.dnd_end=DI.dnd_end
+
+
         #----------------------------------------------------------------------------------#
         # Subframe for "Hauptwahl"
         frame_hauptwahl = nttk.Frame()
@@ -76,7 +87,9 @@ class ChooserFrame(Frame):
         treeview_hauptwahl.column('ECTS', width=50)
 
         treeview_hauptwahl.pack(fill=BOTH, expand=TRUE)
-        treeview_hauptwahl.bind("<ButtonRelease-1>",lambda event,arg=2:  self.item_clicked(event, arg))
+        treeview_hauptwahl.bind('<ButtonRelease-1>',lambda event,arg=2:  self.item_clicked(event, arg))
+        treeview_hauptwahl.bind('<ButtonPress-1>', lambda event, arg=2: self.drag_drop_start(event, arg))
+
         # ----------------------------------------------------------------------------------#
         # Subframe for "Nebenwahl"
         frame_nebenwahl = nttk.Frame()
@@ -93,6 +106,8 @@ class ChooserFrame(Frame):
 
         treeview_neben.pack(fill=BOTH, expand=TRUE)
         treeview_neben.bind('<ButtonRelease-1>', lambda event,arg=3:  self.item_clicked(event, arg))
+        treeview_neben.bind('<ButtonPress-1>', lambda event,arg=3: self.drag_drop_start(event, arg))
+
         #----------------------------------------------------------------------------------------#
         # Notebook construction (using frame objects)
         notebook = nttk.Notebook(self)
@@ -150,7 +165,7 @@ class ChooserFrame(Frame):
             for subject in ChooserFrame.filter_subjects(category):
                 if subject['Name'] not in subjects_done:
                     semester_string = subject['Semester']
-                    # Modification of the semester string for better readibility
+                    # Modification of the semester string for better readability
                     if 'ss' in semester_string or 'SS' in semester_string:
                         semester_string = 'Sommer'
                     elif 'WS' in semester_string or 'ws' in semester_string:
@@ -184,7 +199,8 @@ class ChooserFrame(Frame):
             add_items_to_list(treeview_neben, categories[item-1]+"*")
 
     # -------------------------------------------------------#
-    def getSelectedItem(self):
+    # Currently not used but might be used later
+    def deleteItem(self, treeview, idd):
         global listbox_hauptpflicht
         index = listbox_hauptpflicht.curselection()
         # Return 0 if no item is currently selected
@@ -194,25 +210,28 @@ class ChooserFrame(Frame):
             return 0
 
     # -------------------------- CALLBACKS---------------------------------#
-    def item_clicked(self, event, arg):
-        global treeview_hauptwahl
-        global treeview_haupt
-        global treeview_neben
-        global resource
-
-        # Method focus() returns the item iid that is currently focused
-        if arg == 1:
-            item = treeview_haupt.focus()
-        elif arg ==2:
-            item = treeview_hauptwahl.focus()
-        elif arg==3:
-            item = treeview_neben.focus()
-        else:
-            item=0
-
-        print("Item iid is:" + item)
-        if "I0" in item:
-            item=0
-        if item =="":
+    # Public method for subject description and content rendering
+    @staticmethod
+    def item_clicked(idd):
+        if "I0" in idd:
+            idd = 0
+        if idd == "":
             return
-        TopRightFrame.set_text(resource[int(item)]['Description'], resource[int(item)]['Content'])
+        print("Item that has focus is: " + resource[int(idd)]['Name'])
+        TopRightFrame.set_text(resource[int(idd)]['Description'], resource[int(idd)]['Content'])
+
+    # Callback binding to the button pressed event - this triggers the drag and drop process using the dnd_tkinter_support
+    # arg tells you which treeview in the notebook is currently active.
+    def drag_drop_start(self, event, arg):
+        print("Drag and drop process has been started ...")
+        if arg == 1:
+            source=treeview_haupt
+        elif arg==2:
+            source=treeview_hauptwahl
+        elif arg==3:
+            source=treeview_neben
+        else:
+            source=treeview_haupt
+        global chosen_tree
+        chosen_tree=source
+        dnd_start(source,event)

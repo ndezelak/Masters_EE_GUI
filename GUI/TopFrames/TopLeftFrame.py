@@ -10,6 +10,7 @@ Callbacks:
     - radiobutton_clicked(button_id)
 """
 
+
 from tkinter import *
 from ttk import *
 from GUI.BottomFrames.ChooserFrame import ChooserFrame
@@ -123,6 +124,7 @@ class TopLeftFrame(Frame):
             if option_buffer[1] != neben_option.get():
                 print("Calling ob_subject_changed")
                 ChooserFrame.on_subject_changed(haupt_option.get(), neben_option.get())
+                #ChooserFrame.on_subject_changed(haupt_option.get(), neben_option.get())
                 option_buffer[1] = neben_option.get()
 
 

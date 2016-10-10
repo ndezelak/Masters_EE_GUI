@@ -1,4 +1,4 @@
-from ttk import  Frame,Label
+from ttk import  *
 from tkinter import *
 
 

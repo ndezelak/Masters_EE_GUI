@@ -1,6 +1,6 @@
-from ttk import  Frame,Label
-from tkinter import *
 
+from tkinter import *
+from ttk import  Frame,Label
 
 text_widget = ()
 text_to_display=()
