@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b478e67-803f-45a9-9b62-5fc7d22b7bb0" name="Default" comment="Started implementation of the drag and drop functionallity. &#10;First ideas of the overview window made. Work in progress ...">
+    <list default="true" id="0b478e67-803f-45a9-9b62-5fc7d22b7bb0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/BottomFrames/ChooserFrame.py" afterPath="$PROJECT_DIR$/GUI/BottomFrames/ChooserFrame.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/OverviewFrame/OverviewFrame.py" afterPath="$PROJECT_DIR$/GUI/OverviewFrame/OverviewFrame.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Helpers/DndItem.py" afterPath="$PROJECT_DIR$/Helpers/DndItem.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_GUI.py" afterPath="$PROJECT_DIR$/main_GUI.py" />
     </list>
     <ignored path="GUI_TU_BS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -408,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1476128531050</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Solved problem with the scrollbar. &#10;Defined the OverviewFrame using Canvas. &#10;Added interwindow communication - subjects can be added to&#10;the appropriate listbox inside the Overviewframe.">
+      <created>1476519906612</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1476519906612</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -475,7 +478,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="+ Added classes representing main frames&#10;+ Implemented main GUI structure" />
     <MESSAGE value="Started implementation of the drag and drop functionallity. &#10;First ideas of the overview window made. Work in progress ..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Started implementation of the drag and drop functionallity. &#10;First ideas of the overview window made. Work in progress ..." />
+    <MESSAGE value="Solved problem with the scrollbar. &#10;Defined the OverviewFrame using Canvas. &#10;Added interwindow communication - subjects can be added to&#10;the appropriate listbox inside the Overviewframe." />
+    <option name="LAST_COMMIT_MESSAGE" value="Solved problem with the scrollbar. &#10;Defined the OverviewFrame using Canvas. &#10;Added interwindow communication - subjects can be added to&#10;the appropriate listbox inside the Overviewframe." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
