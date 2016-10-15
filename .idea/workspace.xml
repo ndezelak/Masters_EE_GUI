@@ -478,7 +478,14 @@
       <option name="project" value="LOCAL" />
       <updated>1476535210203</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="- First implementation of the statictis feature&#10;- Marked as version 1.0 on master">
+      <created>1476544853452</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1476544853452</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
@@ -547,7 +554,8 @@
     <MESSAGE value="Started implementation of the drag and drop functionallity. &#10;First ideas of the overview window made. Work in progress ..." />
     <MESSAGE value="Solved problem with the scrollbar. &#10;Defined the OverviewFrame using Canvas. &#10;Added interwindow communication - subjects can be added to&#10;the appropriate listbox inside the Overviewframe." />
     <MESSAGE value="-Implementation of deletion and readition of items from the Overview Window via drag and drop&#10;- As a consequence some new interfaces have been implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Implementation of deletion and readition of items from the Overview Window via drag and drop&#10;- As a consequence some new interfaces have been implemented" />
+    <MESSAGE value="- First implementation of the statictis feature&#10;- Marked as version 1.0 on master" />
+    <option name="LAST_COMMIT_MESSAGE" value="- First implementation of the statictis feature&#10;- Marked as version 1.0 on master" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
