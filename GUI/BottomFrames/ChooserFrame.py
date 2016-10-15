@@ -26,8 +26,33 @@ treeview_neben=()
 categories=("ENERGY","MECHATRONIK", "NANO", "COMMUNICATION", "ELECTRONICS")
 class_reference = []
 chosen_tree=[]
+subjects_done=[]
 
 
+# ------------- Helper function ---------------#
+
+def add_items_to_list( treeview, category):
+    counter = 0
+    treeview.subjects_done = []
+
+    treeview.delete(*treeview.get_children())
+    for subject in ChooserFrame.filter_subjects(category):
+        if subject['Name'] not in treeview.subjects_done:
+            semester_string = subject['Semester']
+            # Modification of the semester string for better readability
+            if 'ss' in semester_string or 'SS' in semester_string:
+                semester_string = 'Sommer'
+            elif 'WS' in semester_string or 'ws' in semester_string:
+                semester_string = 'Winter'
+            else:
+                semester_string = 'Unknown'
+            # Add subject to the treeview
+            treeview.insert(parent='', index=subject['Index'], iid=subject['Index'],
+                            text=subject['Name'], values=[semester_string, subject['Credits']])
+
+            # Save which subjects have been already added in the current session
+            treeview.subjects_done.append(subject['Name'])
+        counter = counter + 1
 # Main class
 class ChooserFrame(Frame):
     # Constructor, initializes the GUI elements
@@ -70,7 +95,7 @@ class ChooserFrame(Frame):
         treeview_haupt.bind('<ButtonRelease-1>', lambda event,arg=1:  self.item_clicked(event, arg))
         treeview_haupt.bind('<ButtonPress-1>', lambda event, arg=1: self.drag_drop_start(event, arg))
         treeview_haupt.dnd_end=DI.dnd_end
-
+        treeview_haupt.hidden_items=[]
 
         #----------------------------------------------------------------------------------#
         # Subframe for "Hauptwahl"
@@ -89,7 +114,8 @@ class ChooserFrame(Frame):
         treeview_hauptwahl.pack(fill=BOTH, expand=TRUE)
         treeview_hauptwahl.bind('<ButtonRelease-1>',lambda event,arg=2:  self.item_clicked(event, arg))
         treeview_hauptwahl.bind('<ButtonPress-1>', lambda event, arg=2: self.drag_drop_start(event, arg))
-
+        treeview_hauptwahl.hidden_items=[]
+        treeview_hauptwahl.dnd_end=DI.dnd_end
         # ----------------------------------------------------------------------------------#
         # Subframe for "Nebenwahl"
         frame_nebenwahl = nttk.Frame()
@@ -107,7 +133,8 @@ class ChooserFrame(Frame):
         treeview_neben.pack(fill=BOTH, expand=TRUE)
         treeview_neben.bind('<ButtonRelease-1>', lambda event,arg=3:  self.item_clicked(event, arg))
         treeview_neben.bind('<ButtonPress-1>', lambda event,arg=3: self.drag_drop_start(event, arg))
-
+        treeview_neben.dnd_end=DI.dnd_end
+        treeview_neben.hidden_items=[]
         #----------------------------------------------------------------------------------------#
         # Notebook construction (using frame objects)
         notebook = nttk.Notebook(self)
@@ -149,6 +176,23 @@ class ChooserFrame(Frame):
             counter = counter + 1
         return subject_2_return
 
+
+    @staticmethod
+    def add_item(treeview,subject):
+        #if subject['Name'] not in treeview.subjects_done:
+            semester_string = subject['Semester']
+            # Modification of the semester string for better readability
+            if 'ss' in semester_string or 'SS' in semester_string:
+                semester_string = 'Sommer'
+            elif 'WS' in semester_string or 'ws' in semester_string:
+                semester_string = 'Winter'
+            else:
+                semester_string = 'Unknown'
+
+            treeview.insert(parent='', index=subject['Index'], iid=subject['Index'],
+               text=subject['Name'], values=[semester_string, subject['Credits']])
+
+
     # -------------------------- INTERFACES -------------------------------#
     @staticmethod
     # Method that is called by other modules to refresh chooser frame with new data
@@ -157,28 +201,6 @@ class ChooserFrame(Frame):
         global resource
         global treeview_hauptwahl
 
-        # ------------- Helper function ---------------#
-        def add_items_to_list(treeview, category):
-            counter = 0
-            subjects_done = []
-            treeview.delete(*treeview.get_children())
-            for subject in ChooserFrame.filter_subjects(category):
-                if subject['Name'] not in subjects_done:
-                    semester_string = subject['Semester']
-                    # Modification of the semester string for better readability
-                    if 'ss' in semester_string or 'SS' in semester_string:
-                        semester_string = 'Sommer'
-                    elif 'WS' in semester_string or 'ws' in semester_string:
-                        semester_string = 'Winter'
-                    else:
-                        semester_string = 'Unknown'
-                    # Add subject to the treeview
-                    treeview.insert(parent='', index=subject['Index'], iid=subject['Index'],
-                                    text=subject['Name'], values=[semester_string, subject['Credits']])
-
-                    # Save which subjects have been already added in the current session
-                    subjects_done.append(subject['Name'])
-                counter = counter + 1
         # -------------------------------------------------------#
         # Check which subject category has changed
         if selected_item[0] != id_1 and id_1 !=0:
@@ -199,15 +221,6 @@ class ChooserFrame(Frame):
             add_items_to_list(treeview_neben, categories[item-1]+"*")
 
     # -------------------------------------------------------#
-    # Currently not used but might be used later
-    def deleteItem(self, treeview, idd):
-        global listbox_hauptpflicht
-        index = listbox_hauptpflicht.curselection()
-        # Return 0 if no item is currently selected
-        if (index):
-            return listbox_hauptpflicht.get(index, last=index)[0]
-        else:
-            return 0
 
     # -------------------------- CALLBACKS---------------------------------#
     # Public method for subject description and content rendering
@@ -217,7 +230,6 @@ class ChooserFrame(Frame):
             idd = 0
         if idd == "":
             return
-        print("Item that has focus is: " + resource[int(idd)]['Name'])
         TopRightFrame.set_text(resource[int(idd)]['Description'], resource[int(idd)]['Content'])
         return resource[int(idd)]
     # Callback binding to the button pressed event - this triggers the drag and drop process using the dnd_tkinter_support

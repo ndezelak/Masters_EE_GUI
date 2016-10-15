@@ -16,12 +16,10 @@
 #       at the scrollbar problem.
 # 11/10: Solved problem with the scrollbar. Defined the OverviewFrame using Canvas. Added interwindow communication - subjects can be added to
 #        the appropriate listbox inside the Overviewframe.
+# 15/10: Implemented the deletion of items from the Overview Window Listboxes. Subjects are returned back to the Chooserframe. Deletion can be done by drag and drop.
 #----------------------------------------------------------------#
 # Description:
 # Main script initializing all main windows
-
-
-
 from GUI.TopFrames.TopLeftFrame import *
 from Helpers.DndItem import *
 from GUI.OverviewFrame.OverviewFrame import *
@@ -149,7 +147,7 @@ frame_info.grid(column=0,row=0, sticky=NSEW)
 button_show_hide=Button(root, text="SHOW/HIDE OVERVIEW", font=('Times', '12'), relief=RAISED, command=show_hide_overview)
 button_show_hide.pack()
 #----------------------------- MAIN LOOP --------------------------------------------------------------------------#
-root.minsize(width=1200, height=800)
+root.minsize(width=1000, height=600)
 root.protocol('WM_DELETE_WINDOW', lambda :save_data(root))
 # Start main loop
 root.mainloop()
