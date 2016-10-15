@@ -219,7 +219,7 @@ class ChooserFrame(Frame):
             return
         print("Item that has focus is: " + resource[int(idd)]['Name'])
         TopRightFrame.set_text(resource[int(idd)]['Description'], resource[int(idd)]['Content'])
-
+        return resource[int(idd)]
     # Callback binding to the button pressed event - this triggers the drag and drop process using the dnd_tkinter_support
     # arg tells you which treeview in the notebook is currently active.
     def drag_drop_start(self, event, arg):

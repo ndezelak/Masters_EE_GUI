@@ -14,15 +14,17 @@
 # 05/10: Studied the drag and drop tkinter support module. Defined how the implementation will be done.
 # 10/10: Implemented first parts of the drag and drop function. Started to design, define and implement the OverviewWindow. Stopped
 #       at the scrollbar problem.
+# 11/10: Solved problem with the scrollbar. Defined the OverviewFrame using Canvas. Added interwindow communication - subjects can be added to
+#        the appropriate listbox inside the Overviewframe.
 #----------------------------------------------------------------#
 # Description:
 # Main script initializing all main windows
 
 
-from GUI.OverviewFrame.OverviewFrame import *
+
 from GUI.TopFrames.TopLeftFrame import *
 from Helpers.DndItem import *
-from GUI.BottomFrames.ChooserFrame import *
+from GUI.OverviewFrame.OverviewFrame import *
 from GUI.TopFrames.TopRightFrame import *
 import ttk as nttk
 import tkinter.tix as tix
@@ -42,8 +44,25 @@ ROW_SPAN_OVERVIEW=2
 COL_SPAN_INFO=1
 ROW_SPAN_INFO=2
 
-
+semester_text = ['WS 2017', 'SS  2017', 'WS 2018', 'SS  2018', 'WS 2019', 'SS  2019']
+frame_overview=None
 # ------------- Button callbacks ----------------------#
+def show_hide_overview():
+    global frame_overview
+    if frame_overview is None:
+        frame_overview = OverviewFrame()
+        frame_overview.populateFrame()
+        frame_overview.visible=1
+    elif frame_overview.visible==0:
+        frame_overview=None
+        frame_overview=OverviewFrame()
+        frame_overview.populateFrame()
+        frame_overview.visible=1
+    else:
+        frame_overview.deiconify()
+        frame_overview.rise()
+def save_data(root):
+    root.quit()
 '''def callbackButton(action):
     if action == 1:
         print('select button clicked')
@@ -84,8 +103,8 @@ Grid.grid_rowconfigure(frame_main, 3, minsize=400)#, weight=20)
 frame_left=nttk.Frame(frame_main)
 frame_left.pack(side=LEFT, fill=BOTH)
 
-
-frame_chooser = ChooserFrame(frame_left)
+import GUI.BottomFrames.ChooserFrame as CF
+frame_chooser = CF.ChooserFrame(frame_left)
 frame_top = TopLeftFrame(frame_left)
 frame_top.pack(side=TOP, fill=Y)
 frame_chooser.pack(side=TOP, fill=BOTH, expand=TRUE)
@@ -97,7 +116,7 @@ frame_options=nttk.Frame(frame_main)
 #button_add=nttk.Button(frame_options, text=">>", command = lambda : callbackButton(1) )
 # List of Labels displaying the semester you want to choose
 semester_labels = []
-semester_text = ['WS 2017', 'SS  2017', 'WS 2018', 'SS  2018', 'WS 2019', 'SS  2019']
+
 for i in range(1,7):
 
     label=Label(master=frame_options, text = semester_text[i-1], relief=RAISED , width=8, font=('Times', '12'))
@@ -118,41 +137,23 @@ frame_right=nttk.Frame(frame_main)
 frame_right.pack(side=LEFT, fill=BOTH)
 
 
-
 #2 Top Right Frame initialization and placement into the main window
 frame_info = TopRightFrame(frame_right)
 frame_info.grid(column=0,row=0, sticky=NSEW)
 
-
-#4 Overview Frame
-#frame_overview = OverviewFrame(frame_right)
-#frame_overview.grid(column=0, row=1, sticky=N+S+E+W)
-#frame_overview.populateFrame()
-topWindow=tix.Toplevel()
-topWindow.title("Overview Window")
-topWindow.minsize(width=600, height=600)
-
-swin = tix.ScrolledWindow(topWindow, scrollbar=Y)
-swin.pack(expand=TRUE, fill=BOTH, anchor=NW)
-
-#topWindow_leftFrame=Frame(swin)
-#topWindow_leftFrame.pack(side=LEFT, expand=TRUE, anchor=NW)
+#-----------OVERVIEW FRAME ---------------
 
 
-semester_boxes=[]
 
-for i in range(1,7):
-    #list_frame['text'] = 'Some text'
-    listbox = tix.Listbox(swin, height=10, width=50)
-    listbox.pack(side=TOP, anchor=NW)
-    semester_boxes.append(listbox)
 
-for labelframe in semester_boxes:
-    labelframe.pack(side=TOP, anchor=W)
+button_show_hide=Button(root, text="SHOW/HIDE OVERVIEW", font=('Times', '12'), relief=RAISED, command=show_hide_overview)
+button_show_hide.pack()
 #----------------------------- MAIN LOOP --------------------------------------------------------------------------#
 root.minsize(width=1200, height=800)
+root.protocol('WM_DELETE_WINDOW', lambda :save_data(root))
 # Start main loop
 root.mainloop()
+
 
 
 
