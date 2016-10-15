@@ -17,6 +17,7 @@
 # 11/10: Solved problem with the scrollbar. Defined the OverviewFrame using Canvas. Added interwindow communication - subjects can be added to
 #        the appropriate listbox inside the Overviewframe.
 # 15/10: Implemented the deletion of items from the Overview Window Listboxes. Subjects are returned back to the Chooserframe. Deletion can be done by drag and drop.
+#        First complete implementation of the statistics feature
 #----------------------------------------------------------------#
 # Description:
 # Main script initializing all main windows

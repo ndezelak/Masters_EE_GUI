@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b478e67-803f-45a9-9b62-5fc7d22b7bb0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Helpers/Statistic_module.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/BottomFrames/ChooserFrame.py" afterPath="$PROJECT_DIR$/GUI/BottomFrames/ChooserFrame.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI/OverviewFrame/OverviewFrame.py" afterPath="$PROJECT_DIR$/GUI/OverviewFrame/OverviewFrame.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Helpers/DndItem.py" afterPath="$PROJECT_DIR$/Helpers/DndItem.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_GUI.py" afterPath="$PROJECT_DIR$/main_GUI.py" />
@@ -29,10 +29,22 @@
       <file leaf-file-name="main_GUI.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main_GUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1224">
-              <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+            <state relative-caret-position="323">
+              <caret line="19" column="64" selection-start-line="19" selection-start-column="64" selection-end-line="19" selection-end-column="64" />
               <folding>
-                <element signature="e#2166#2206#0" expanded="true" />
+                <element signature="e#2231#2271#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Statistic_module.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Helpers/Statistic_module.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="663">
+              <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+              <folding>
+                <element signature="e#66#111#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -41,7 +53,7 @@
       <file leaf-file-name="ChooserFrame.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI/BottomFrames/ChooserFrame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
+            <state relative-caret-position="3842">
               <caret line="238" column="0" selection-start-line="238" selection-start-column="0" selection-end-line="238" selection-end-column="0" />
               <folding>
                 <element signature="e#330#358#0" expanded="true" />
@@ -53,8 +65,8 @@
       <file leaf-file-name="DndItem.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Helpers/DndItem.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="53" column="32" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="40" />
+            <state relative-caret-position="-131">
+              <caret line="55" column="16" selection-start-line="55" selection-start-column="16" selection-end-line="56" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -63,8 +75,8 @@
       <file leaf-file-name="OverviewFrame.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI/OverviewFrame/OverviewFrame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="72" column="80" selection-start-line="72" selection-start-column="80" selection-end-line="72" selection-end-column="80" />
+            <state relative-caret-position="321">
+              <caret line="40" column="28" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -102,8 +114,9 @@
         <option value="$PROJECT_DIR$/GUI/TopFrames/TopRightFrame.py" />
         <option value="$PROJECT_DIR$/GUI/TopFrames/TopLeftFrame.py" />
         <option value="$PROJECT_DIR$/Helpers/DnD_Tkinter_Support.py" />
-        <option value="$PROJECT_DIR$/Helpers/DndItem.py" />
         <option value="$PROJECT_DIR$/GUI/BottomFrames/ChooserFrame.py" />
+        <option value="$PROJECT_DIR$/Helpers/DndItem.py" />
+        <option value="$PROJECT_DIR$/Helpers/Statistic_module.py" />
         <option value="$PROJECT_DIR$/GUI/OverviewFrame/OverviewFrame.py" />
         <option value="$PROJECT_DIR$/main_GUI.py" />
       </list>
@@ -458,7 +471,14 @@
       <option name="project" value="LOCAL" />
       <updated>1476519916933</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="-Implementation of deletion and readition of items from the Overview Window via drag and drop&#10;- As a consequence some new interfaces have been implemented">
+      <created>1476535210203</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1476535210203</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -474,13 +494,13 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22991072" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08407738" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4274062" sideWeight="0.50223213" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4274062" sideWeight="0.50223213" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51386625" sideWeight="0.48735118" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42577487" sideWeight="0.31324404" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27406198" sideWeight="0.2373512" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27406198" sideWeight="0.7626488" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51386625" sideWeight="0.484375" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22022839" sideWeight="0.71279764" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37030995" sideWeight="0.24627976" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37030995" sideWeight="0.7537202" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48450243" sideWeight="0.34747022" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -526,7 +546,8 @@
     <MESSAGE value="+ Added classes representing main frames&#10;+ Implemented main GUI structure" />
     <MESSAGE value="Started implementation of the drag and drop functionallity. &#10;First ideas of the overview window made. Work in progress ..." />
     <MESSAGE value="Solved problem with the scrollbar. &#10;Defined the OverviewFrame using Canvas. &#10;Added interwindow communication - subjects can be added to&#10;the appropriate listbox inside the Overviewframe." />
-    <option name="LAST_COMMIT_MESSAGE" value="Solved problem with the scrollbar. &#10;Defined the OverviewFrame using Canvas. &#10;Added interwindow communication - subjects can be added to&#10;the appropriate listbox inside the Overviewframe." />
+    <MESSAGE value="-Implementation of deletion and readition of items from the Overview Window via drag and drop&#10;- As a consequence some new interfaces have been implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="-Implementation of deletion and readition of items from the Overview Window via drag and drop&#10;- As a consequence some new interfaces have been implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -540,13 +561,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/GUI/TopFrames/TopRightFrame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GUI/TopFrames/TopLeftFrame.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1836">
@@ -559,7 +573,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2166#2206#0" expanded="true" />
+            <element signature="e#2231#2271#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -586,7 +600,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2166#2206#0" expanded="true" />
+            <element signature="e#2231#2271#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -627,7 +641,7 @@
         <state relative-caret-position="833">
           <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
           <folding>
-            <element signature="e#2166#2206#0" expanded="true" />
+            <element signature="e#2231#2271#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -668,7 +682,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2166#2206#0" expanded="true" />
+            <element signature="e#2231#2271#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -709,7 +723,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2166#2206#0" expanded="true" />
+            <element signature="e#2231#2271#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -750,7 +764,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2166#2206#0" expanded="true" />
+            <element signature="e#2231#2271#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -791,7 +805,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2166#2206#0" expanded="true" />
+            <element signature="e#2231#2271#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -802,7 +816,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2166#2206#0" expanded="true" />
+            <element signature="e#2231#2271#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -813,7 +827,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2166#2206#0" expanded="true" />
+            <element signature="e#2231#2271#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -880,7 +894,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI/BottomFrames/ChooserFrame.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
+        <state relative-caret-position="3842">
           <caret line="238" column="0" selection-start-line="238" selection-start-column="0" selection-end-line="238" selection-end-column="0" />
           <folding>
             <element signature="e#330#358#0" expanded="true" />
@@ -888,30 +902,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Helpers/DndItem.py">
+    <entry file="file://$PROJECT_DIR$/Helpers/Statistic_module.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="53" column="32" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="40" />
-          <folding />
+        <state relative-caret-position="663">
+          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+          <folding>
+            <element signature="e#66#111#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI/OverviewFrame/OverviewFrame.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="72" column="80" selection-start-line="72" selection-start-column="80" selection-end-line="72" selection-end-column="80" />
+        <state relative-caret-position="321">
+          <caret line="40" column="28" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Helpers/DndItem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-131">
+          <caret line="55" column="16" selection-start-line="55" selection-start-column="16" selection-end-line="56" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main_GUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1224">
-          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+        <state relative-caret-position="323">
+          <caret line="19" column="64" selection-start-line="19" selection-start-column="64" selection-end-line="19" selection-end-column="64" />
           <folding>
-            <element signature="e#2166#2206#0" expanded="true" />
+            <element signature="e#2231#2271#0" expanded="true" />
           </folding>
         </state>
       </provider>

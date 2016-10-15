@@ -7,7 +7,7 @@ from Helpers.DnD_Tkinter_Support import dnd_start
 semester_text = ['WS 2017', 'SS  2017', 'WS 2018', 'SS  2018', 'WS 2019', 'SS  2019']
 semester_boxes = []
 semester_frames = []
-
+numbers=[]
 
 class OverviewFrame(Toplevel):
     def __init__(self):
@@ -19,8 +19,18 @@ class OverviewFrame(Toplevel):
         global semester_boxes
         for box in semester_boxes:
             if box.id == id:
+                from GUI.BottomFrames.ChooserFrame import treeview_neben, treeview_haupt, treeview_hauptwahl
+                if subject['Tree'] == treeview_haupt:
+                    tree='P'
+                elif subject['Tree'] == treeview_hauptwahl:
+                    tree='W'
+                elif subject['Tree'] == treeview_neben:
+                    tree='N'
+                else:
+                    tree='U'
                 if ( ("ss" or "SS") in subject['Semester'] and ("SS" or "ss") in id) or ("WS" in subject['Semester'] and "WS" in id):
-                    box.insert(END, subject['Name'])
+                    box.insert(END, subject['Name'] + '[' + tree +']')
+
                     # Save reference to the added subject including the listbox index
                     box.added_items.append(subject)
                     return 1
@@ -88,11 +98,12 @@ class OverviewFrame(Toplevel):
         # Right frame used for displaying statistic information
         frame_statistik = LabelFrame(topWindow_frame, text="Statistik", font=('Times', '13'))
         label_test = Label(frame_statistik, image=image_)
-        label_test.pack()
+        frame_statistik.rowconfigure(9,weight=20)
+        label_test.grid(row=10, column=0)
 
         # Delete label (implements the drag & drop interface)
         delete_label = Label(frame_statistik, text="DELETE", relief=RAISED, font=('Times', '16') , height=3, width=20)
-        delete_label.pack(side=BOTTOM, anchor=S)
+        delete_label.grid(row=10,column=0, sticky=NSEW)
         delete_label.id="DEL"
         delete_label.dnd_accept=dnd_accept
         delete_label.dnd_enter=dnd_enter
@@ -100,5 +111,13 @@ class OverviewFrame(Toplevel):
         delete_label.dnd_leave=dnd_leave
         delete_label.dnd_commit=dnd_commit
 
+        texts=['Wahlpflicht', 'Wahl','Neben']
+        global numbers
+        for i in range(1,4):
+            label_category=Label(master=frame_statistik, text=texts[i-1], font=('Times',14), anchor=W, width=30, padx=10)
+            label_category.grid(row=i-1, column=0)
+            label_number=Label(master=frame_statistik, text=str(0), font=('Times',14), anchor=CENTER, width=2, foreground='blue', relief=RAISED)
+            label_number.grid(row=i-1,column=1)
+            numbers.append(label_number)
         frame_statistik.pack(side=LEFT, anchor=NW, expand=TRUE, fill=BOTH)
 

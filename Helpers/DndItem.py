@@ -53,6 +53,8 @@ def dnd_end(target, event):
             # Find the appropriate listbox
             if OF.OverviewFrame.add_item(target.id,subject) !=0:
                 # Delete the added item
+                import Helpers.Statistic_module as SM
+                SM.notify()
                 CH.chosen_tree.delete(item)
 
         # OverviewFrame
@@ -72,6 +74,8 @@ def dnd_end(target, event):
                        import GUI.BottomFrames.ChooserFrame as CH
                        CH.ChooserFrame.add_item(item['Tree'],item)
                        current_source.added_items.remove(item)
+                       import Helpers.Statistic_module as SM
+                       SM.notify()
                 current_source.delete(current_source.curselection())
     else:
         pass
